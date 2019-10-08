@@ -178,6 +178,25 @@ public class BluetoothService2 extends Service {
 
     }
 
+    /**
+     * 向蓝牙写入命令
+     *
+     * @param cmd 字符串
+     */
+    public void writeCharacteristicAscii(String cmd) {
+        cmd = cmd.replaceAll(" ","");
+        if (null == mCharacteristic || null == mBluetoothGatt){
+            Log.e(TAG, "method writeCharacteristic \n write fail : characteristic or bluetoothGatt is null");
+
+            return;
+        }
+        mCharacteristic.setValue(cmd.getBytes());
+        mBluetoothGatt.writeCharacteristic(mCharacteristic);
+        mBluetoothGatt.setCharacteristicNotification(mCharacteristic, true);
+
+    }
+
+
     public BluetoothGattCharacteristic getBluetoothGattCharacteristic() {
         return mCharacteristic;
     }

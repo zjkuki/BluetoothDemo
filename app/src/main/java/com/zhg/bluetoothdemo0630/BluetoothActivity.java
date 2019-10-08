@@ -38,7 +38,7 @@ public class BluetoothActivity extends AppCompatActivity
     /**
      * 需要链接的设备名字
      */
-    private final String DEVICE_NAME = "BluetoothDeviceName";
+    private final String DEVICE_NAME = "VB0E97D58600003BA4A5";
 
     private TextView tv_text;
     private BluetoothDevice mBluetoothDevice;
@@ -143,7 +143,8 @@ public class BluetoothActivity extends AppCompatActivity
                 break;
             case R.id.btn_sendCMD:
                 //TODO 向蓝牙设备发送命令
-                mBluetoothService.writeCharacteristic("BEB001C036");//十六进制数命令
+                //mBluetoothService.writeCharacteristic("KUKIWU");//十六进制数命令
+                mBluetoothService.writeCharacteristicAscii("KUKIWU");//十六进制数命令
                 break;
             default:
                 break;
